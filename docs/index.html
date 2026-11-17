@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="使用 Codex 和 AiBean 技能，在本地 Web 和 Java Biz 项目中开发业务功能。">
+  <title>AiBean × Codex | 本地智能开发指南</title>
+  <style>
+    :root{color-scheme:light;--ink:#182632;--muted:#61717d;--line:#dde6e4;--paper:#f4f7f4;--green:#176b55;--deep:#0d322a;--lime:#d8f270;--white:#fff;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}a{color:inherit}button{font:inherit} .wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+    header{background:var(--deep);color:#fff;overflow:hidden}.nav{display:flex;align-items:center;justify-content:space-between;padding:25px 0;border-bottom:1px solid #ffffff24}.brand{font-size:16px;font-weight:800;letter-spacing:.02em}.brand span{color:var(--lime)}.nav a{text-decoration:none;color:#d7e9df;font-size:14px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:86px 0 95px}.eyebrow{font:700 12px var(--mono);letter-spacing:.16em;color:#b4dbbd;text-transform:uppercase}.hero h1{font-size:clamp(40px,5vw,64px);line-height:1.16;letter-spacing:-.045em;margin:24px 0}.hero h1 em{font-style:normal;color:var(--lime)}.hero p{font-size:17px;color:#c5dbd0;max-width:550px;margin:0}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;background:var(--lime);color:#183324}.btn.secondary{background:transparent;color:#fff;border:1px solid #ffffff55}.hero-note{font-size:12px!important;margin-top:24px!important;color:#99b7a9!important}
+    .diagram{background:#153e34;border:1px solid #ffffff20;border-radius:16px;padding:24px;box-shadow:0 30px 70px #001d1744}.diagram-top{font:11px var(--mono);letter-spacing:.12em;color:#a6c7b5;display:flex;justify-content:space-between}.diagram-title{font-size:21px;font-weight:700;margin:24px 0 20px}.flow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.node{border:1px solid #ffffff24;background:#ffffff09;padding:15px;border-radius:9px}.node small{display:block;font:11px var(--mono);color:#9ec0ae;margin-bottom:7px}.node strong{font-size:14px}.bridge{text-align:center;color:#a9d69b;font-size:21px;padding:9px}.node.wide{grid-column:1/-1;background:#d8f270;color:#17372b;border:0}.node.wide small{color:#416445}
+    main{padding:76px 0}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:70px}.toc{align-self:start;position:sticky;top:32px}.toc-label,.kicker{font:700 11px var(--mono);color:var(--green);letter-spacing:.13em}.toc a{display:block;color:var(--muted);font-size:14px;text-decoration:none;margin:13px 0}.toc a:hover{color:var(--green)}section{scroll-margin-top:25px;margin-bottom:76px}.section-head{display:flex;gap:16px;align-items:baseline;margin-bottom:13px}.section-head .num{font:12px var(--mono);color:var(--green)}h2{font-size:30px;line-height:1.3;letter-spacing:-.025em;margin:0}h3{font-size:17px;margin:26px 0 8px}p{margin:10px 0 16px}.lead{font-size:15px;color:var(--muted);max-width:680px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}.card .label{font:11px var(--mono);color:var(--green);letter-spacing:.08em}.card h3{margin:8px 0 6px}.card p{color:var(--muted);font-size:14px;margin:0}.notice{border-left:3px solid #9fc448;background:#edf4e4;padding:15px 18px;margin:20px 0;font-size:14px;color:#344e37;border-radius:0 8px 8px 0}.step{display:grid;grid-template-columns:32px 1fr;gap:14px;margin-top:28px}.step-number{height:30px;width:30px;border:1px solid #b7d4c3;color:var(--green);font:700 12px var(--mono);display:grid;place-items:center;border-radius:50%}.step h3{margin:1px 0 7px}.step p{font-size:14px;color:var(--muted);margin:0 0 12px}.code{position:relative;background:#172a27;color:#e4f4e8;border-radius:10px;overflow:hidden;margin:12px 0}.code-label{padding:11px 16px;border-bottom:1px solid #ffffff18;color:#9dbca9;font:11px var(--mono);letter-spacing:.05em}.code pre{overflow:auto;margin:0;padding:20px 16px;font:12.5px/1.8 var(--mono);white-space:pre}.code button{position:absolute;right:10px;top:7px;border:1px solid #ffffff2d;border-radius:6px;background:#ffffff10;color:#dbeee0;font-size:12px;padding:3px 9px;cursor:pointer}.code button:hover{background:#ffffff20}.bullet{padding-left:19px;color:#52646d;font-size:14px}.bullet li{margin:10px 0}.prompt{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;color:#40555b;font-size:14px}.prompt strong{color:var(--green)}.end{background:#e2eddc;border:1px solid #d4e6ce;border-radius:14px;padding:26px}.end p{color:#516b59;font-size:14px}.footer{border-top:1px solid var(--line);padding:25px 0 40px;color:#788b86;font-size:12px}.footer .wrap{display:flex;justify-content:space-between;gap:15px}.inline{font-family:var(--mono);font-size:.9em;background:#e8eeeb;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}button:focus-visible,a:focus-visible{outline:3px solid #e1b147;outline-offset:3px}
+    @media(max-width:760px){.wrap{width:min(100% - 32px,1120px)}.hero{grid-template-columns:1fr;gap:36px;padding:60px 0}.hero h1{font-size:42px}.layout{grid-template-columns:1fr;gap:0}.toc{position:static;display:flex;overflow:auto;gap:18px;margin-bottom:40px}.toc-label{display:none}.toc a{white-space:nowrap;margin:0}.grid{grid-template-columns:1fr}main{padding:48px 0}.footer .wrap{flex-direction:column}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="主导航"><div class="brand">AiBean <span>✳</span> AGENT SKILLS</div><a href="https://github.com/aibean-bpm/aibean-agent-skills">GitHub 仓库 ↗</a></nav>
+    <div class="hero">
+      <div><div class="eyebrow">LOCAL DEVELOPMENT GUIDE · 01</div><h1>让 Codex 懂你的<br><em>AiBean 项目。</em></h1><p>安装业务开发技能，连接本地 Web 与 Java Biz 源码，让智能体沿用已有框架完成业务列表、接口与流程表单开发。</p><div class="actions"><a class="btn" href="#install">开始安装 <span aria-hidden="true">&nbsp;↗</span></a><a class="btn secondary" href="#first-task">查看开发示例</a></div><p class="hero-note">面向本地开发 · 无需公开你的业务源码</p></div>
+      <div class="diagram" aria-label="Codex 使用技能开发本地前后端项目"><div class="diagram-top"><span>YOUR LOCAL WORKSPACE</span><span>● ● ●</span></div><div class="diagram-title">你的项目，已有的框架。</div><div class="flow"><div class="node"><small>01 / FRONTEND</small><strong>Web · Vue</strong></div><div class="node"><small>02 / BACKEND</small><strong>Biz · Java</strong></div></div><div class="bridge">↓</div><div class="node wide"><small>CODEX + AIBEAN SKILL</small><strong>理解约定 → 开发业务 → 本地验证</strong></div></div>
+    </div>
+  </div>
+</header>
+<main class="wrap"><div class="layout">
+  <aside class="toc" aria-label="页面目录"><div class="toc-label">ON THIS PAGE</div><a href="#prepare">准备工作</a><a href="#install">安装技能</a><a href="#first-task">开始开发</a><a href="#workflow">流程与表单</a><a href="#faq">常见问题</a></aside>
+  <div>
+    <section id="prepare"><div class="section-head"><span class="num">01 /</span><h2>先准备好本地项目</h2></div><p class="lead">技能不是独立的业务系统。它需要读取你已有的项目结构与代码约定，才能在现有框架上开发。</p><div class="grid"><div class="card"><div class="label">FRONTEND / WEB</div><h3>本地 Web 前端</h3><p>准备包含 <span class="inline">package.json</span>、<span class="inline">src/</span> 和 <span class="inline">public/form/</span> 的 Vue 项目。</p></div><div class="card"><div class="label">BACKEND / BIZ</div><h3>本地 Java 后端</h3><p>准备包含根 <span class="inline">pom.xml</span> 和 <span class="inline">aibean-biz-web</span> 模块的 Biz 项目。</p></div></div><div class="notice">两个项目可以是私有的本地仓库，不需要上传到 GitHub。进行接口联调时，还需能访问你的开发环境服务。</div></section>
+    <section id="install"><div class="section-head"><span class="num">02 /</span><h2>在对话中安装技能</h2></div><p class="lead">不熟悉终端也没关系。打开 Codex，选择本地项目，再直接告诉智能体从 GitHub 安装技能。</p>
+      <div class="step"><span class="step-number">1</span><div><h3>打开本地项目</h3><p>打开 Codex，选择你的 Web 前端和 Biz 后端文件夹，开始一个本地会话。如果当前界面只能先选择一个目录，可先打开其中一个，然后在对话中提供另一个项目的本地路径，并按提示授予访问权限。</p></div></div>
+      <div class="step"><span class="step-number">2</span><div><h3>发送安装请求</h3><p>复制下面的内容到 Codex 对话框。安装时按 Codex 提示批准所需操作，无需将业务项目上传到 GitHub。</p><div class="code"><div class="code-label">CODEX 对话 / 复制后发送</div><button type="button" aria-label="复制技能安装请求">复制</button><pre><code>请从 https://github.com/aibean-bpm/aibean-agent-skills
+安装 skills/aibean-business-development 技能到我的 Codex 用户级技能目录。
+安装前请先检查是否已经安装；如果已存在，请告诉我并避免覆盖。
+安装完成后请告诉我如何开始使用。</code></pre></div></div></div>
+      <div class="step"><span class="step-number">3</span><div><h3>开启新会话，描述业务需求</h3><p>等待智能体报告安装成功，然后在 Codex 中开启新会话；指定 Web 与 Biz 的实际本地路径，并使用 <span class="inline">$aibean-business-development</span> 提出开发需求。</p></div></div>
+      <div class="notice">安装技能可能需要访问 GitHub 和写入本机技能目录；如果 Codex 请求权限，请核对操作内容后授权。若已安装过，请让智能体先检查现有版本，避免覆盖。</div>
+      <details><summary>备用方式：在终端手动安装（macOS / Linux）</summary><p class="lead">如果对话安装不方便，可以按以下步骤安装。技能仓库与业务源码分开存放。</p>
+      <div class="step"><span class="step-number">1</span><div><h3>克隆技能仓库</h3><p>在终端执行。如果目标目录已经存在，请进入该目录更新，或选择其他目录；不要覆盖现有文件。</p><div class="code"><div class="code-label">TERMINAL</div><button type="button" aria-label="复制克隆命令">复制</button><pre><code>git clone https://github.com/aibean-bpm/aibean-agent-skills.git "$HOME/aibean-agent-skills"</code></pre></div></div></div>
+      <div class="step"><span class="step-number">2</span><div><h3>链接到用户技能目录</h3><p>先确认目标技能目录不存在；如果已经安装过，请检查现有目录或链接，不要覆盖。</p><div class="code"><div class="code-label">TERMINAL</div><button type="button" aria-label="复制安装命令">复制</button><pre><code>mkdir -p "$HOME/.agents/skills"
+ln -s "$HOME/aibean-agent-skills/skills/aibean-business-development" "$HOME/.agents/skills/aibean-business-development"</code></pre></div><p>这里使用 Codex 的用户级技能目录；也可参考 <a href="https://developers.openai.com/codex/skills">Codex 技能文档 ↗</a>。</p></div></div>
+      <div class="step"><span class="step-number">3</span><div><h3>打开新的 Codex 会话</h3><p>在 Codex 中打开你的本地工作区，启动新会话以发现新技能。随后可以在需求中明确输入 <span class="inline">$aibean-business-development</span>。</p></div></div>
+      <div class="notice">技能通过链接指向克隆目录，请保留该目录。后续在技能仓库执行 <span class="inline">git pull</span> 更新，并开启新的 Codex 会话。</div></details>
+    </section>
+    <section id="first-task"><div class="section-head"><span class="num">03 /</span><h2>交给 Codex 第一个需求</h2></div><p class="lead">把前后端的实际本地路径和业务目标一起告诉 Codex。路径由你指定，下方只是格式示例。</p><div class="code"><div class="code-label">PROMPT / 根据实际情况替换路径</div><button type="button" aria-label="复制示例需求">复制</button><pre><code>使用 $aibean-business-development 技能，帮我开发采购申请业务。
+
+Web 前端项目：/你的本地路径/web
+Biz 后端项目：/你的本地路径/aibean-biz
+
+请先阅读现有框架和相关代码，确认所需的表、字段和菜单名称，
+再基于现有框架实现查询列表、业务接口和流程表单。</code></pre></div><ul class="bullet"><li>为 Codex 提供两个项目的访问与修改权限；如果目录不在当前工作区，按工具提示添加或授权。</li><li>业务 Java 代码沿用 <span class="inline">aibean-biz-web</span>；列表沿用项目已有查询面板和表格范式。</li><li>在线接口需要认证：技能支持在本地安全输入登录信息，或使用已有临时令牌；不要把密码或令牌发到聊天中。</li></ul></section>
+    <section id="workflow"><div class="section-head"><span class="num">04 /</span><h2>涉及流程和表单时</h2></div><p class="lead">先准备好流程设计器中的流程编码，再让智能体围绕该流程开发业务。流程图与流转功能继续使用平台已有能力。</p><div class="grid"><div class="card"><div class="label">PROCESS</div><h3>确认数据与绑定</h3><p>提供流程编码；智能体查询绑定表和字段。需要新增表或更改字段时，先与你确认；流程表绑定和默认表单写入前会展示请求并征求确认。</p></div><div class="card"><div class="label">FORM</div><h3>使用本地 Vue 表单</h3><p>表单直接放在 <span class="inline">public/form/forms/</span>。智能体开发时将项目的 <span class="inline">public/config.js</span> 中 <span class="inline">localform</span> 设为 <span class="inline">true</span>，便于本地加载和测试。</p></div></div><div class="notice">产品默认可继续使用远程表单。<span class="inline">localform: true</span> 是智能体开发和测试时的本地配置，请留意交付时的配置变更。</div><ul class="bullet"><li>流程数据表按平台约定包含 <span class="inline">long itemid</span>（唯一主键）和 <span class="inline">long taskid</span>（流程引擎写入）。</li><li>通过 AutoTable 新建的表，需要按项目要求重启 Biz 服务并确认建表结果。</li><li>技能不会设计 BPMN 流程图，也不会重新开发平台已有的待办、审批和流程流转页面。</li></ul></section>
+    <section id="faq"><div class="section-head"><span class="num">05 /</span><h2>开始之前，再确认一下</h2></div><h3>找不到技能？</h3><p class="lead">检查链接是否指向技能目录，目录内是否存在 <span class="inline">SKILL.md</span>，然后启动新的 Codex 会话。</p><h3>没有流程编码也能开发吗？</h3><p class="lead">普通业务列表和 CRUD 可以正常开发；需要流程关联时，请先在设计器中完成流程并提供编码。</p><h3>为什么本地表单没有显示？</h3><p class="lead">检查前端实际加载的 <span class="inline">public/config.js</span> 中 <span class="inline">localform</span> 是否为 <span class="inline">true</span>，以及表单相对路径与文件是否一致；配置变化后按项目运行方式刷新或重启。</p></section>
+    <div class="end"><div class="kicker">READY TO BUILD</div><h2>从一个具体业务开始。</h2><p>告诉 Codex 两个本地项目在哪里，以及你想完成什么。剩下的，让技能带着它熟悉你的框架。</p><a class="btn" href="#first-task">回到需求示例 ↑</a></div>
+  </div>
+</div></main>
+<footer class="footer"><div class="wrap"><span>AiBean Agent Skills · 本地开发指南</span><a href="https://github.com/aibean-bpm/aibean-agent-skills">查看技能源码 ↗</a></div></footer>
+<script>
+  document.querySelectorAll('.code button').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const value = button.parentElement.querySelector('code').textContent;
+      try {
+        if (!navigator.clipboard || !window.isSecureContext) throw new Error('clipboard unavailable');
+        await navigator.clipboard.writeText(value);
+        button.textContent = '已复制';
+      } catch (_) {
+        const range = document.createRange();
+        range.selectNodeContents(button.parentElement.querySelector('code'));
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        button.textContent = '已选中，请复制';
+      }
+      setTimeout(() => { button.textContent = '复制'; }, 2200);
+    });
+  });
+</script>
+</body>
+</html>
