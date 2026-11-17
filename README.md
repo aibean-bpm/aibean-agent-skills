@@ -2,7 +2,7 @@
 
 此仓库收集可复用的 AiBean 智能体技能。当前包含 `aibean-business-development`，用于在用户指定的本地 Vue 与 Java Biz API 工作区开发业务功能。
 
-智能体在开发期间调用流程、菜单等在线 AiBean API 时会请求用户以安全输入提供临时 `Authorization: Bearer <token>`。同一令牌适用于 Server API 的 `/api` 与 Biz API 代理的 `/bapi`，但令牌只用于当前会话，不会写入本仓库、业务代码或 Git。
+智能体调用在线 AiBean API 时，可由用户通过本地隐藏输入安全登录，或安全提供已有临时令牌；本地开发联调使用 `/api/auth/apilogin`。同一令牌适用于 Server API 的 `/api` 与 Biz API 代理的 `/bapi`，但令牌只用于当前会话，不会写入本仓库、业务代码或 Git。
 
 流程元数据查询、流程发起表绑定和默认表单绑定使用 Server API 的 `/api/process/*`；菜单仍使用项目既有的 `/bapi/menu/*` 接口。
 

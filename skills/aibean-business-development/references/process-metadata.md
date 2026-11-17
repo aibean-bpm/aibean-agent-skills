@@ -10,7 +10,7 @@ GET /api/process/meta/bound-fields?processCode=<流程编码>
 
 可选参数 `processVersion` 为空时表示读取命中的流程版本。在前端开发环境中使用相对 `/api` 路径，由用户项目现有的 Vite 代理转发到 Server API；不要硬编码代理目标地址，也不要改用 `/bapi/process/meta/bound-fields`。不要把示例流程编码写入业务代码、测试或文档。
 
-调用前遵循 [临时 API 认证](authentication.md)。没有有效认证时，不请求流程元数据，改为向用户请求当前会话的临时令牌。
+调用前遵循 [临时 API 认证](authentication.md)。没有有效认证时，先安全登录或安全输入当前会话的临时令牌。
 
 响应 `data` 的主要字段：
 
