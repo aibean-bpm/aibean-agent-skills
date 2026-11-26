@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="使用 Codex 和 AiBean 技能，在本地 Web 和 Java Biz 项目中开发业务功能。">
-  <title>AiBean × Codex | 本地智能开发指南</title>
+  <meta name="description" content="使用 AI 智能体和 AiBean 技能，在本地 Web 和 Java Biz 项目中开发业务功能。">
+  <title>AiBean × AI Agent | 本地智能开发指南</title>
   <style>
     :root{color-scheme:light;--ink:#182632;--muted:#61717d;--line:#dde6e4;--paper:#f4f7f4;--green:#176b55;--deep:#0d322a;--lime:#d8f270;--white:#fff;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75}a{color:inherit}button{font:inherit} .wrap{width:min(1120px,calc(100% - 48px));margin:auto}
@@ -19,40 +19,53 @@
   <div class="wrap">
     <nav class="nav" aria-label="主导航"><div class="brand">AiBean <span>✳</span> AGENT SKILLS</div><a href="https://github.com/aibean-bpm/aibean-agent-skills">GitHub 仓库 ↗</a></nav>
     <div class="hero">
-      <div><div class="eyebrow">LOCAL DEVELOPMENT GUIDE · 01</div><h1>让 Codex 懂你的<br><em>AiBean 项目。</em></h1><p>安装业务开发技能，连接本地 Web 与 Java Biz 源码，让智能体沿用已有框架完成业务列表、接口与流程表单开发。</p><div class="actions"><a class="btn" href="#install">开始安装 <span aria-hidden="true">&nbsp;↗</span></a><a class="btn secondary" href="#first-task">查看开发示例</a></div><p class="hero-note">面向本地开发 · 无需公开你的业务源码</p></div>
-      <div class="diagram" aria-label="Codex 使用技能开发本地前后端项目"><div class="diagram-top"><span>YOUR LOCAL WORKSPACE</span><span>● ● ●</span></div><div class="diagram-title">你的项目，已有的框架。</div><div class="flow"><div class="node"><small>01 / FRONTEND</small><strong>Web · Vue</strong></div><div class="node"><small>02 / BACKEND</small><strong>Biz · Java</strong></div></div><div class="bridge">↓</div><div class="node wide"><small>CODEX + AIBEAN SKILL</small><strong>理解约定 → 开发业务 → 本地验证</strong></div></div>
+      <div><div class="eyebrow">LOCAL DEVELOPMENT GUIDE · 01</div><h1>让 AI 智能体懂你的<br><em>AiBean 项目。</em></h1><p>安装业务开发技能，连接本地 Web 与 Java Biz 源码，让智能体沿用已有框架完成业务列表、接口与流程表单开发。</p><div class="actions"><a class="btn" href="#install">开始安装 <span aria-hidden="true">&nbsp;↗</span></a><a class="btn secondary" href="#first-task">查看开发示例</a></div><p class="hero-note">面向本地开发 · 无需公开你的业务源码</p></div>
+      <div class="diagram" aria-label="AI 智能体使用技能开发本地前后端项目"><div class="diagram-top"><span>YOUR LOCAL WORKSPACE</span><span>● ● ●</span></div><div class="diagram-title">你的项目，已有的框架。</div><div class="flow"><div class="node"><small>01 / FRONTEND</small><strong>Web · Vue</strong></div><div class="node"><small>02 / BACKEND</small><strong>Biz · Java</strong></div></div><div class="bridge">↓</div><div class="node wide"><small>AI AGENT + AIBEAN SKILL</small><strong>理解约定 → 开发业务 → 本地验证</strong></div></div>
     </div>
   </div>
 </header>
 <main class="wrap"><div class="layout">
-  <aside class="toc" aria-label="页面目录"><div class="toc-label">ON THIS PAGE</div><a href="#prepare">准备工作</a><a href="#install">安装技能</a><a href="#first-task">开始开发</a><a href="#workflow">流程与表单</a><a href="#faq">常见问题</a></aside>
+  <aside class="toc" aria-label="页面目录"><div class="toc-label">ON THIS PAGE</div><a href="#setup">首次安装环境</a><a href="#prepare">准备工作</a><a href="#install">安装技能</a><a href="#first-task">开始开发</a><a href="#workflow">流程与表单</a><a href="#faq">常见问题</a></aside>
   <div>
+    <section id="setup"><div class="section-head"><span class="num">00 /</span><h2>首次使用：让 WorkBuddy 搭建环境</h2></div><p class="lead">首次拿到 AiBean 交付包时，可以让 WorkBuddy 根据随包说明协助安装并验证开发环境。已经搭建完成的用户可以直接进入下一步。</p>
+      <div class="step"><span class="step-number">1</span><div><h3>解压交付包并打开 aibean 目录</h3><p>在开发者自己的电脑上解压交付包，用 WorkBuddy 打开包含 <span class="inline">readme.md</span> 的整个 <span class="inline">aibean</span> 目录。以实际解压路径为准，不要使用交付服务器路径。</p></div></div>
+      <div class="step"><span class="step-number">2</span><div><h3>发送环境安装任务</h3><p>复制下面的内容到 WorkBuddy 对话框。需要管理员权限、仓库授权或数据库选择时，按实际提示处理。</p><div class="code"><div class="code-label">WORKBUDDY 对话 / 复制后发送</div><button type="button" aria-label="复制环境安装请求">复制</button><pre><code>请阅读当前交付包根目录的 readme.md，按照其中的要求搭建本机
+AiBean 二次开发环境。先检查交付包、系统工具、SDK 私服依赖、
+资源文件和端口；不满足条件时说明阻塞，不要声称安装成功。
+
+请先询问我要安装新 PostgreSQL，还是使用现有数据库；
+在我回答之前，不进行依赖该选择的数据库操作。
+保留已有配置和数据，修改前备份，不自动删除或初始化已有业务数据。
+
+请按说明安装或复用所需工具，准备并启动 Server API 和管理后台，
+再从交付源码启动 Biz API 与用户前端；不要同时启动 Biz JAR
+或完整 Docker Compose。每个阶段验证实际结果。
+最后告诉我访问地址、启动和停止方法、配置位置、已修改的文件
+以及尚未通过的检查。请不要在报告中输出密码或共享密钥。</code></pre></div></div></div>
+      <div class="step"><span class="step-number">3</span><div><h3>验证完成后进入业务开发</h3><p>确认管理后台、Server API、Biz API 和用户前端的实际运行结果，再打开交付包中的 <span class="inline">source-code/web-user-vue</span> 与 <span class="inline">source-code/web-biz-api</span> 进行本地业务开发。</p></div></div>
+      <div class="notice">安装依赖网络、交付包完整性和必要权限；若 SDK、授权或依赖缺失，请联系交付方。交付包内的 <span class="inline">readme.md</span> 是实际版本的安装依据。数据库选型及已有数据处理必须由开发者确认。</div>
+    </section>
     <section id="prepare"><div class="section-head"><span class="num">01 /</span><h2>先准备好本地项目</h2></div><p class="lead">技能不是独立的业务系统。它需要读取你已有的项目结构与代码约定，才能在现有框架上开发。</p><div class="grid"><div class="card"><div class="label">FRONTEND / WEB</div><h3>本地 Web 前端</h3><p>准备包含 <span class="inline">package.json</span>、<span class="inline">src/</span> 和 <span class="inline">public/form/</span> 的 Vue 项目。</p></div><div class="card"><div class="label">BACKEND / BIZ</div><h3>本地 Java 后端</h3><p>准备包含根 <span class="inline">pom.xml</span> 和 <span class="inline">aibean-biz-web</span> 模块的 Biz 项目。</p></div></div><div class="notice">两个项目可以是私有的本地仓库，不需要上传到 GitHub。进行接口联调时，还需能访问你的开发环境服务。</div></section>
-    <section id="install"><div class="section-head"><span class="num">02 /</span><h2>在对话中安装技能</h2></div><p class="lead">不熟悉终端也没关系。打开 Codex，选择本地项目，再直接告诉智能体从 GitHub 安装技能。</p>
-      <div class="step"><span class="step-number">1</span><div><h3>打开本地项目</h3><p>打开 Codex，选择你的 Web 前端和 Biz 后端文件夹，开始一个本地会话。如果当前界面只能先选择一个目录，可先打开其中一个，然后在对话中提供另一个项目的本地路径，并按提示授予访问权限。</p></div></div>
-      <div class="step"><span class="step-number">2</span><div><h3>发送安装请求</h3><p>复制下面的内容到 Codex 对话框。安装时按 Codex 提示批准所需操作，无需将业务项目上传到 GitHub。</p><div class="code"><div class="code-label">CODEX 对话 / 复制后发送</div><button type="button" aria-label="复制技能安装请求">复制</button><pre><code>请从 https://github.com/aibean-bpm/aibean-agent-skills
-安装 skills/aibean-business-development 技能到我的 Codex 用户级技能目录。
+    <section id="install"><div class="section-head"><span class="num">02 /</span><h2>在对话中安装技能</h2></div><p class="lead">不熟悉终端也没关系。打开支持技能的 AI 智能体工具，选择本地项目，再直接告诉智能体从 GitHub 安装技能。</p>
+      <div class="step"><span class="step-number">1</span><div><h3>打开本地项目</h3><p>打开你使用的 AI 智能体工具，选择你的 Web 前端和 Biz 后端文件夹，开始一个本地会话。如果当前界面只能先选择一个目录，可先打开其中一个，然后在对话中提供另一个项目的本地路径，并按提示授予访问权限。</p></div></div>
+      <div class="step"><span class="step-number">2</span><div><h3>发送安装请求</h3><p>复制下面的内容到智能体对话框。安装时按工具提示批准所需操作，无需将业务项目上传到 GitHub。</p><div class="code"><div class="code-label">智能体对话 / 复制后发送</div><button type="button" aria-label="复制技能安装请求">复制</button><pre><code>请从 https://github.com/aibean-bpm/aibean-agent-skills
+安装 skills/aibean-business-development 技能到当前智能体支持的用户级技能目录。
 安装前请先检查是否已经安装；如果已存在，请告诉我并避免覆盖。
 安装完成后请告诉我如何开始使用。</code></pre></div></div></div>
-      <div class="step"><span class="step-number">3</span><div><h3>开启新会话，描述业务需求</h3><p>等待智能体报告安装成功，然后在 Codex 中开启新会话；指定 Web 与 Biz 的实际本地路径，并使用 <span class="inline">$aibean-business-development</span> 提出开发需求。</p></div></div>
-      <div class="notice">安装技能可能需要访问 GitHub 和写入本机技能目录；如果 Codex 请求权限，请核对操作内容后授权。若已安装过，请让智能体先检查现有版本，避免覆盖。</div>
-      <details><summary>备用方式：在终端手动安装（macOS / Linux）</summary><p class="lead">如果对话安装不方便，可以按以下步骤安装。技能仓库与业务源码分开存放。</p>
-      <div class="step"><span class="step-number">1</span><div><h3>克隆技能仓库</h3><p>在终端执行。如果目标目录已经存在，请进入该目录更新，或选择其他目录；不要覆盖现有文件。</p><div class="code"><div class="code-label">TERMINAL</div><button type="button" aria-label="复制克隆命令">复制</button><pre><code>git clone https://github.com/aibean-bpm/aibean-agent-skills.git "$HOME/aibean-agent-skills"</code></pre></div></div></div>
-      <div class="step"><span class="step-number">2</span><div><h3>链接到用户技能目录</h3><p>先确认目标技能目录不存在；如果已经安装过，请检查现有目录或链接，不要覆盖。</p><div class="code"><div class="code-label">TERMINAL</div><button type="button" aria-label="复制安装命令">复制</button><pre><code>mkdir -p "$HOME/.agents/skills"
-ln -s "$HOME/aibean-agent-skills/skills/aibean-business-development" "$HOME/.agents/skills/aibean-business-development"</code></pre></div><p>这里使用 Codex 的用户级技能目录；也可参考 <a href="https://developers.openai.com/codex/skills">Codex 技能文档 ↗</a>。</p></div></div>
-      <div class="step"><span class="step-number">3</span><div><h3>打开新的 Codex 会话</h3><p>在 Codex 中打开你的本地工作区，启动新会话以发现新技能。随后可以在需求中明确输入 <span class="inline">$aibean-business-development</span>。</p></div></div>
-      <div class="notice">技能通过链接指向克隆目录，请保留该目录。后续在技能仓库执行 <span class="inline">git pull</span> 更新，并开启新的 Codex 会话。</div></details>
+      <div class="step"><span class="step-number">3</span><div><h3>开启新会话，描述业务需求</h3><p>等待智能体报告安装成功，然后按所用工具的方式开启新会话或刷新技能列表；指定 Web 与 Biz 的实际本地路径，并说明使用 <span class="inline">aibean-business-development</span> 技能提出开发需求；具体调用语法以所用工具为准。</p></div></div>
+      <div class="notice">安装技能可能需要访问 GitHub 和写入本机技能目录；如果工具请求权限，请核对操作内容后授权。若已安装过，请让智能体先检查现有版本，避免覆盖。</div>
+      <div class="notice">不同智能体的技能安装目录、发现方式和调用语法可能不同。请按所用工具的文档或智能体提示操作；确认其支持读取包含 <span class="inline">SKILL.md</span> 的技能目录。若已安装，请先检查现有文件，避免覆盖。</div>
     </section>
-    <section id="first-task"><div class="section-head"><span class="num">03 /</span><h2>交给 Codex 第一个需求</h2></div><p class="lead">把前后端的实际本地路径和业务目标一起告诉 Codex。路径由你指定，下方只是格式示例。</p><div class="code"><div class="code-label">PROMPT / 根据实际情况替换路径</div><button type="button" aria-label="复制示例需求">复制</button><pre><code>使用 $aibean-business-development 技能，帮我开发采购申请业务。
+    <section id="first-task"><div class="section-head"><span class="num">03 /</span><h2>交给 AI 智能体第一个需求</h2></div><p class="lead">把前后端的实际本地路径和业务目标一起告诉 AI 智能体。路径由你指定，下方只是格式示例。</p><div class="code"><div class="code-label">PROMPT / 根据实际情况替换路径</div><button type="button" aria-label="复制示例需求">复制</button><pre><code>请使用 aibean-business-development 技能，帮我开发采购申请业务。
 
 Web 前端项目：/你的本地路径/web
 Biz 后端项目：/你的本地路径/aibean-biz
 
 请先阅读现有框架和相关代码，确认所需的表、字段和菜单名称，
-再基于现有框架实现查询列表、业务接口和流程表单。</code></pre></div><ul class="bullet"><li>为 Codex 提供两个项目的访问与修改权限；如果目录不在当前工作区，按工具提示添加或授权。</li><li>业务 Java 代码沿用 <span class="inline">aibean-biz-web</span>；列表沿用项目已有查询面板和表格范式。</li><li>在线接口需要认证：技能支持在本地安全输入登录信息，或使用已有临时令牌；不要把密码或令牌发到聊天中。</li></ul></section>
+再基于现有框架实现查询列表、业务接口和流程表单。</code></pre></div><ul class="bullet"><li>为智能体提供两个项目的访问与修改权限；如果目录不在当前工作区，按工具提示添加或授权。</li><li>业务 Java 代码沿用 <span class="inline">aibean-biz-web</span>；列表沿用项目已有查询面板和表格范式。</li><li>在线接口需要认证：技能支持在本地安全输入登录信息，或使用已有临时令牌；不要把密码或令牌发到聊天中。</li></ul></section>
     <section id="workflow"><div class="section-head"><span class="num">04 /</span><h2>涉及流程和表单时</h2></div><p class="lead">先准备好流程设计器中的流程编码，再让智能体围绕该流程开发业务。流程图与流转功能继续使用平台已有能力。</p><div class="grid"><div class="card"><div class="label">PROCESS</div><h3>确认数据与绑定</h3><p>提供流程编码；智能体查询绑定表和字段。需要新增表或更改字段时，先与你确认；流程表绑定和默认表单写入前会展示请求并征求确认。</p></div><div class="card"><div class="label">FORM</div><h3>使用本地 Vue 表单</h3><p>表单直接放在 <span class="inline">public/form/forms/</span>。智能体开发时将项目的 <span class="inline">public/config.js</span> 中 <span class="inline">localform</span> 设为 <span class="inline">true</span>，便于本地加载和测试。</p></div></div><div class="notice">产品默认可继续使用远程表单。<span class="inline">localform: true</span> 是智能体开发和测试时的本地配置，请留意交付时的配置变更。</div><ul class="bullet"><li>流程数据表按平台约定包含 <span class="inline">long itemid</span>（唯一主键）和 <span class="inline">long taskid</span>（流程引擎写入）。</li><li>通过 AutoTable 新建的表，需要按项目要求重启 Biz 服务并确认建表结果。</li><li>技能不会设计 BPMN 流程图，也不会重新开发平台已有的待办、审批和流程流转页面。</li></ul></section>
-    <section id="faq"><div class="section-head"><span class="num">05 /</span><h2>开始之前，再确认一下</h2></div><h3>找不到技能？</h3><p class="lead">检查链接是否指向技能目录，目录内是否存在 <span class="inline">SKILL.md</span>，然后启动新的 Codex 会话。</p><h3>没有流程编码也能开发吗？</h3><p class="lead">普通业务列表和 CRUD 可以正常开发；需要流程关联时，请先在设计器中完成流程并提供编码。</p><h3>为什么本地表单没有显示？</h3><p class="lead">检查前端实际加载的 <span class="inline">public/config.js</span> 中 <span class="inline">localform</span> 是否为 <span class="inline">true</span>，以及表单相对路径与文件是否一致；配置变化后按项目运行方式刷新或重启。</p></section>
-    <div class="end"><div class="kicker">READY TO BUILD</div><h2>从一个具体业务开始。</h2><p>告诉 Codex 两个本地项目在哪里，以及你想完成什么。剩下的，让技能带着它熟悉你的框架。</p><a class="btn" href="#first-task">回到需求示例 ↑</a></div>
+    <section id="faq"><div class="section-head"><span class="num">05 /</span><h2>开始之前，再确认一下</h2></div><h3>找不到技能？</h3><p class="lead">检查链接是否指向技能目录，目录内是否存在 <span class="inline">SKILL.md</span>，然后启动新的智能体会话。</p><h3>没有流程编码也能开发吗？</h3><p class="lead">普通业务列表和 CRUD 可以正常开发；需要流程关联时，请先在设计器中完成流程并提供编码。</p><h3>为什么本地表单没有显示？</h3><p class="lead">检查前端实际加载的 <span class="inline">public/config.js</span> 中 <span class="inline">localform</span> 是否为 <span class="inline">true</span>，以及表单相对路径与文件是否一致；配置变化后按项目运行方式刷新或重启。</p></section>
+    <div class="end"><div class="kicker">READY TO BUILD</div><h2>从一个具体业务开始。</h2><p>告诉智能体两个本地项目在哪里，以及你想完成什么。剩下的，让技能带着它熟悉你的框架。</p><a class="btn" href="#first-task">回到需求示例 ↑</a></div>
   </div>
 </div></main>
 <footer class="footer"><div class="wrap"><span>AiBean Agent Skills · 本地开发指南</span><a href="https://github.com/aibean-bpm/aibean-agent-skills">查看技能源码 ↗</a></div></footer>
